@@ -3,22 +3,34 @@ import Main from '../layouts/Main'
 import Home from '../pages/Home/Home'
 import Login from '../pages/Login/Login'
 import SignUp from '../pages/Signup/SignUp'
+import PlaceDetails from '../pages/Placedetails/PlaceDetails'
+import PrivateRoute from './PrivateRoute'
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Main />,
-    children: [{
-      path: '/',
-      element: <Home />,
-    }]
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/place/:id",
+        element: (
+          <PrivateRoute>
+            <PlaceDetails />
+          </PrivateRoute>
+        ),
+      },
+    ],
   },
   {
-    path: '/login',
+    path: "/login",
     element: <Login />,
   },
   {
-    path: '/signup',
+    path: "/signup",
     element: <SignUp />,
   },
-])
+]);
