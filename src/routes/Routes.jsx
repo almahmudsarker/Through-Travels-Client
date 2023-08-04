@@ -5,6 +5,8 @@ import Login from '../pages/Login/Login'
 import SignUp from '../pages/Signup/SignUp'
 import PlaceDetails from '../pages/Placedetails/PlaceDetails'
 import PrivateRoute from './PrivateRoute'
+import DashboardLayout from '../layouts/DashboardLayout'
+import AddPlace from '../pages/Dashboard/AddPlace'
 
 export const router = createBrowserRouter([
   {
@@ -32,5 +34,15 @@ export const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignUp />,
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: "/dashboard/add-place",
+        element: <AddPlace />,
+      }
+    ]
   },
 ]);
