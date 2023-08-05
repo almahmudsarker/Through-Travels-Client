@@ -8,6 +8,7 @@ import PrivateRoute from './PrivateRoute'
 import DashboardLayout from '../layouts/DashboardLayout'
 import AddPlace from '../pages/Dashboard/AddPlace'
 import { getPlace } from '../api/places'
+import MyBookings from '../pages/Dashboard/MyBookings'
 
 export const router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ export const router = createBrowserRouter([
             <PlaceDetails />
           </PrivateRoute>
         ),
-        loader: ({params}) => getPlace(params.id),
+        loader: ({ params }) => getPlace(params.id),
       },
     ],
   },
@@ -39,12 +40,20 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/dashboard/add-place",
         element: <AddPlace />,
-      }
-    ]
+      },
+      {
+        path: "/dashboard/my-bookings",
+        element: <MyBookings />,
+      },
+    ],
   },
 ]);
