@@ -5,6 +5,7 @@ import Card from './Card';
 import Loader from '../Shared/Loader';
 import { useSearchParams } from 'react-router-dom';
 import Heading from '../Heading/Heading';
+import { getAllPlaces } from '../../api/places';
 
 const Places = () => {
     const [params, setParams] = useSearchParams({});
@@ -15,8 +16,7 @@ const Places = () => {
 
     useEffect(() => {
       setLoading(true);
-      fetch("./places.json")
-        .then((res) => res.json())
+      getAllPlaces()
         .then((data) => {
             if (category){
                 const filtered = data.filter((place) => place.category === category)

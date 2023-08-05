@@ -3,7 +3,7 @@ import HeartButton from "../Button/HeartButton";
 
 const Card = ({place}) => {
   return (
-    <Link to={`/place/${1}`} className="col-span-1 cursor-pointer group">
+    <Link to={`/place/${place._id}`} className="col-span-1 cursor-pointer group">
       <div className="flex flex-col gap-2 w-full">
         <div
           className="

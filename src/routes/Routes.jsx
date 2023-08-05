@@ -7,6 +7,7 @@ import PlaceDetails from '../pages/Placedetails/PlaceDetails'
 import PrivateRoute from './PrivateRoute'
 import DashboardLayout from '../layouts/DashboardLayout'
 import AddPlace from '../pages/Dashboard/AddPlace'
+import { getPlace } from '../api/places'
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,7 @@ export const router = createBrowserRouter([
             <PlaceDetails />
           </PrivateRoute>
         ),
+        loader: ({params}) => getPlace(params.id),
       },
     ],
   },
