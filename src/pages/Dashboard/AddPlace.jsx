@@ -3,9 +3,11 @@ import AddPlaceForm from '../../components/Forms/AddPlaceForm';
 import { imageUpload } from '../../api/utils';
 import { AuthContext } from '../../providers/AuthProvider';
 import { addPlace } from '../../api/places';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const AddPlace = () => {
-
+    const navigate = useNavigate()
     const [dates, setDates] = useState({
         startDate: new Date(),
         endDate: new Date(),
@@ -24,13 +26,13 @@ const AddPlace = () => {
         const title = event.target.title.value
         const description = event.target.description.value
         const price = event.target.price.value
-        const guests = event.target.guests.value
+        const guests = event.target.guest.value
         const bedrooms = event.target.bedrooms.value
         const bathrooms = event.target.bathrooms.value
         const from = dates.startDate
         const to = dates.endDate
         const images = event.target.image.files[0]
-
+        setUploadButtonText('Uploading...')
         // Upload image to IMGBB
         imageUpload(images)
         .then(data => {
@@ -56,7 +58,10 @@ const AddPlace = () => {
             //post place data to backend
             addPlace(placeData)
             .then(data => {
-                console.log(data)
+               setUploadButtonText('Uploaded!')
+               setLoading(false)
+               toast.success('Place Added!')
+               navigate('/dashboard/my-listings')
             })
             .catch(err => {
                 console.log(err.message)

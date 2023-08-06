@@ -9,6 +9,7 @@ import DashboardLayout from '../layouts/DashboardLayout'
 import AddPlace from '../pages/Dashboard/AddPlace'
 import { getPlace } from '../api/places'
 import MyBookings from '../pages/Dashboard/MyBookings'
+import MyListings from '../pages/Dashboard/MyListings'
 
 export const router = createBrowserRouter([
   {
@@ -47,12 +48,20 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
+        path: "/dashboard/",
+        element: <MyBookings />,
+      },
+      {
         path: "/dashboard/add-place",
         element: <AddPlace />,
       },
       {
         path: "/dashboard/my-bookings",
         element: <MyBookings />,
+      },
+      {
+        path: "/dashboard/my-listings",
+        element: <MyListings />,
       },
     ],
   },
