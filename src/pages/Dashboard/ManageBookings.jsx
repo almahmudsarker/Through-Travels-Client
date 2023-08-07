@@ -1,20 +1,24 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-import { getPlaces } from "../../api/places";
-import PlaceDataRow from "../../components/Dashboard/PlaceDataRow";
+import { getHostBookings } from "../../api/bookings";
+import TableRow from "../../components/Dashboard/TableRow";
 import EmptyState from "../../components/Shared/EmptyState";
 
-const MyListings = () => {
-    const {user} = useContext(AuthContext)
-    const [places, setPlaces] = useState([])
-    const fetchPlaces = () => getPlaces(user?.email).then(data => setPlaces(data))
+const ManageBookings = () => {
+  const [bookings, setBookings] = useState([]);
+  const { user } = useContext(AuthContext);
+  const fetchBookings = () => {
+    getHostBookings(user?.email).then((data) => {
+      setBookings(data);
+    });
+  };
 
-    useEffect(() => {
-        fetchPlaces()
-    }, [user])
+  useEffect(() => {
+    fetchBookings();
+  }, [user]);
   return (
     <>
-      {places && Array.isArray(places) && places.length > 0 ? (
+      {bookings && Array.isArray(bookings) && bookings.length > 0 ? (
         <div className="container mx-auto px-4 sm:px-8">
           <div className="py-8">
             <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
@@ -56,23 +60,17 @@ const MyListings = () => {
                         scope="col"
                         className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
                       >
-                        Delete
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
-                      >
-                        Update
+                        Action
                       </th>
                     </tr>
                   </thead>
                   <tbody>
-                    {places &&
-                      places.map((place) => (
-                        <PlaceDataRow
-                          key={place._id}
-                          place={place}
-                          fetchPlaces={fetchPlaces}
+                    {bookings &&
+                      bookings.map((booking) => (
+                        <TableRow
+                          key={booking._id}
+                          booking={booking}
+                          fetchBookings={fetchBookings}
                         />
                       ))}
                   </tbody>
@@ -82,14 +80,14 @@ const MyListings = () => {
           </div>
         </div>
       ) : (
-        <EmptyState
-          message="No Place Data Available!"
-          address="/dashboard/add-place"
-          label="Add Place"
+        <EmptyState 
+        message={"No Booking Data Available!"}
+        address={"/"}
+        label={"Go Back"}  
         />
       )}
     </>
   );
 };
 
-export default MyListings;
+export default ManageBookings;

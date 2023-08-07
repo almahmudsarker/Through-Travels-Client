@@ -43,7 +43,7 @@ const Places = () => {
                 }
             </div>
                 ) : (
-                    <div className="pt-12">
+                    <div className="min-h-[calc(100vh-300px)] flex items-center justify-center">
                         <Heading 
                         title="No Places Available In This Category" 
                         subtitle="Please try another category" 

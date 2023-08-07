@@ -11,7 +11,7 @@ const Loader = () => {
       items-center 
     "
     >
-      <ScaleLoader size={100} color="blue" />
+      <ScaleLoader size={100} color="#3f96f4" />
     </div>
   );
 };
