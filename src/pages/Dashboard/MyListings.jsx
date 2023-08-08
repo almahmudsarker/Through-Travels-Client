@@ -1,17 +1,36 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-import { getPlaces } from "../../api/places";
+// import { getPlaces } from "../../api/places";
 import PlaceDataRow from "../../components/Dashboard/PlaceDataRow";
 import EmptyState from "../../components/Shared/EmptyState";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const MyListings = () => {
-    const {user} = useContext(AuthContext)
-    const [places, setPlaces] = useState([])
-    const fetchPlaces = () => getPlaces(user?.email).then(data => setPlaces(data))
+    const {user, loading} = useContext(AuthContext)
+    const [axiosSecure] = useAxiosSecure()
 
-    useEffect(() => {
-        fetchPlaces()
-    }, [user])
+    // const [places, setPlaces] = useState([])
+    // const fetchPlaces = () => 
+    // axiosSecure
+    //     .get(`/places/${user?.email}`)
+    //     .then(data => setPlaces(data.data))
+    //     .catch(err => console.log(err))
+
+    // useEffect(() => {
+    //     fetchPlaces()
+    // }, [user])
+
+    const { data: places = [], refetch } = useQuery({
+      queryKey: ['places', user?.email],
+      enabled: !loading,
+      queryFn: async () => {
+       const res = await axiosSecure.get(`/places/${user?.email}`)
+        return res.data
+      },
+    })
+
+
   return (
     <>
       {places && Array.isArray(places) && places.length > 0 ? (
@@ -72,7 +91,8 @@ const MyListings = () => {
                         <PlaceDataRow
                           key={place._id}
                           place={place}
-                          fetchPlaces={fetchPlaces}
+                          refetch={refetch}
+                          // fetchPlaces={fetchPlaces}
                         />
                       ))}
                   </tbody>

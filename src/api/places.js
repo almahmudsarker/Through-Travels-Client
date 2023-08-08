@@ -19,11 +19,17 @@ export const getAllPlaces = async () => {
 }
 
 // Get filtered places for hosts
-export const getPlaces = async email => {
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/places/${email}`)
-    const data = await response.json()
-    return data
-}
+// export const getPlaces = async email => {
+//     const response = await fetch(`${import.meta.env.VITE_API_URL}/places/${email}`,
+//     {
+//         headers: {
+//             authorization: `Bearer ${localStorage.getItem('access-token')}`,
+//         },
+//     }
+//     )
+//     const data = await response.json()
+//     return data
+// }
 
 // Get a single place
 export const getPlace = async (id) => {
