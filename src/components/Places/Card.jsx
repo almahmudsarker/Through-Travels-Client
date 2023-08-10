@@ -37,7 +37,7 @@ const Card = ({place}) => {
         </div>
         <div className="font-semibold text-lg">{place.location}</div>
         <div className="font-light text-neutral-500">
-          5 nights . {place.dateRange}
+         5 nights . {place.dateRange}
         </div>
         <div className="flex flex-row items-center gap-1">
           <div className="font-semibold">$ {place.price}</div>

@@ -49,3 +49,17 @@ export const deletePlace = async (id) => {
     const data = await response.json()
     return data
 }
+
+// update Place
+export const updatePlace= async (placeData, id) => {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/places/${id}`, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json',
+            authorization: `Bearer ${localStorage.getItem('access-token')}`,
+        },
+        body: JSON.stringify(placeData),
+    })
+    const data = await response.json()
+    return data
+}

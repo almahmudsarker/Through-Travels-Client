@@ -47,24 +47,24 @@ const PlaceReservation = ({ placeData }) => {
     setValue({ ...value })
   }
 
-  const modalHandler = () => {
-    addBooking(bookingInfo)
-    .then((data) => {
-      console.log(data)
-      updateStatus(placeData._id, true)
-      .then(data => {
-        toast.success("Booking successful!")
-        navigate("/dashboard/my-bookings")
-        closeModal()
-      })
-      .catch(err => console.log(err))
-    })
-    .catch((error) => {
-      console.log(error)
-      closeModal()
-    })
-    console.log("modalHandler");
-  }
+  // const modalHandler = () => {
+  //   addBooking(bookingInfo)
+  //   .then((data) => {
+  //     console.log(data)
+  //     updateStatus(placeData._id, true)
+  //     .then(data => {
+  //       toast.success("Booking successful!")
+  //       navigate("/dashboard/my-bookings")
+  //       closeModal()
+  //     })
+  //     .catch(err => console.log(err))
+  //   })
+  //   .catch((error) => {
+  //     console.log(error)
+  //     closeModal()
+  //   })
+  //   console.log("modalHandler");
+  // }
 
   return (
     <div className="bg-white rounded-xl border-[1px]  border-neutral-200 overflow-hidden">
@@ -90,7 +90,6 @@ const PlaceReservation = ({ placeData }) => {
         <div>$ {totalPrice}</div>
       </div>
       <BookingModal
-        modalHandler={modalHandler}
         bookingInfo={bookingInfo}
         isOpen={isOpen}
         closeModal={closeModal}

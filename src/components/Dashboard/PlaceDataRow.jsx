@@ -3,9 +3,11 @@ import { useState } from "react";
 import { deletePlace } from "../../api/places";
 import { toast } from "react-hot-toast";
 import DeleteModal from "../Modal/DeleteModal";
+import UpdatePlaceModal from "../Modal/UpdatePlaceModal";
 
 const PlaceDataRow = ({ place, refetch }) => {
     let [isOpen, setIsOpen] = useState(false)
+    const [isEditModalOpen, setIsEditModalOpen] = useState(false)
 
     function openModal() {
         setIsOpen(true)
@@ -75,13 +77,18 @@ const PlaceDataRow = ({ place, refetch }) => {
         />
       </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-        <span className="relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+        <span onClick={() => setIsEditModalOpen(true)} className="relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
           <span
             aria-hidden="true"
             className="absolute inset-0 bg-green-200 opacity-50 rounded-full"
           ></span>
           <span className="relative">Update</span>
         </span>
+        <UpdatePlaceModal isOpen={isEditModalOpen} setIsEditModalOpen={setIsEditModalOpen} 
+        refetch={refetch}
+        place={place}
+        id={place._id}
+        />
       </td>
     </tr>
   );
