@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+.animated-text {
+    font-weight: 900;
+    font-family: 'Dancing Script', cursive;
+    background: linear-gradient(to right,
+            #021f2c 20%,
+            #00b4f9 30%,
+            #025a7d 70%,
+            #012b3b 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400% 400%;
+    animation: textShine 10s ease infinite;
+}
+
+@keyframes textShine {
+        0% {
+            background-position: 0% 50%;
+        }
+    
+        50% {
+            background-position: 100% 50%;
+        }
+    
+        100% {
+            background-position: 0% 50%;
+        }
+}

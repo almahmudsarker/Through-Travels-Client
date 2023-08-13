@@ -23,7 +23,7 @@ import Heading from "../Heading/Heading";
 const Payment = () => {
   return (
     <div className="mt-12">
-    <Heading title="Payment Partner" subtitle="Now you can Pay with our trusted world wide payment services" center={true}  />
+    {/* <Heading title="Payment Partner" subtitle="Now you can Pay with our trusted world wide payment services" center={true}  /> */}
       <Marquee gradient={true} gradientWidth={250} pauseOnClick={true}>
         <img src={Img1} alt="Payment" />
         <img src={Img2} alt="Payment" />

@@ -6,7 +6,7 @@ import Heading from '../Heading/Heading';
 const Categories = () => {
     return (
         <div className='mt-8'>
-            <Heading title='Explore Category' subtitle='Now you can select your destination by categories' center={true} />
+            {/* <Heading title='Explore Category' subtitle='Now you can select your destination by categories' center={true} /> */}
             <Container>
                 <div className='pt-4 flex flex-row items-center justify-between overflow-x-auto'>
                     {
