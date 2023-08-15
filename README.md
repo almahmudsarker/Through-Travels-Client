@@ -3,6 +3,9 @@ Welcome to Through Travels, an exciting travel website that allows users to expl
 This repository contains the codebase for the Through Travels React application, along with its backend built using Express and Node.js. 
 The website integrates various technologies to offer a seamless travel booking experience, including payment gateways like Stripe, bKash, and Nagad.
 
+![Through Travels](https://i.ibb.co/d5xRtyz/banner-section.jpg)
+
+
 ## Features
 - Interactive Destination Exploration: Users can browse through a wide range of travel destinations, view captivating images, read descriptions, and get a feel for the places they can visit.
 - Booking Engine: Through Travels provides a user-friendly booking engine that allows users to select their desired travel dates, accommodation preferences, and additional services, providing a tailored booking experience.
@@ -64,6 +67,7 @@ Follow these steps to run the project locally:
 Contributions to Through Travels are welcome! If you find any issues or have suggestions for improvements, please feel free to submit a pull request.
 
 ## License
+![MIT License](https://i.ibb.co/NTHxy9w/100px-MIT-logo-svg.png)
 This project is licensed under the [MIT License](LICENSE).
 
 #
