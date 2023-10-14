@@ -10,6 +10,8 @@ import ExclusiveDeals from "../../components/ExclusiveDeals/ExclusiveDeals";
 import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
 import LocalCuisineSection from "../../components/LocalCuisineSection/LocalCuisineSection";
 import NewsletterSignup from "../../components/NewsletterSignup/NewsletterSignup";
+import Safety from "../../components/Safety/Safety";
+// import SocialMediaFeeds from "../../components/SocialMediaFeeds/SocialMediaFeeds";
 
 const Home = () => {
   return (
@@ -56,6 +58,8 @@ const Home = () => {
         Now you can Pay with our trusted world wide payment services
       </h4>
       <Payment />
+      {/* <SocialMediaFeeds /> */}
+      <Safety />
       <NewsletterSignup />
     </>
   );
