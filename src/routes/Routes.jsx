@@ -1,21 +1,23 @@
-import { createBrowserRouter } from 'react-router-dom'
-import Main from '../layouts/Main'
-import Home from '../pages/Home/Home'
-import Login from '../pages/Login/Login'
-import SignUp from '../pages/Signup/SignUp'
-import PlaceDetails from '../pages/Placedetails/PlaceDetails'
-import PrivateRoute from './PrivateRoute'
-import DashboardLayout from '../layouts/DashboardLayout'
-import AddPlace from '../pages/Dashboard/AddPlace'
-import { getPlace } from '../api/places'
-import MyBookings from '../pages/Dashboard/MyBookings'
-import MyListings from '../pages/Dashboard/MyListings'
-import ManageBookings from '../pages/Dashboard/ManageBookings'
+import { createBrowserRouter } from "react-router-dom";
+import Main from "../layouts/Main";
+import Home from "../pages/Home/Home";
+import Login from "../pages/Login/Login";
+import SignUp from "../pages/Signup/SignUp";
+import PlaceDetails from "../pages/Placedetails/PlaceDetails";
+import PrivateRoute from "./PrivateRoute";
+import DashboardLayout from "../layouts/DashboardLayout";
+import AddPlace from "../pages/Dashboard/AddPlace";
+import { getPlace } from "../api/places";
+import MyBookings from "../pages/Dashboard/MyBookings";
+import MyListings from "../pages/Dashboard/MyListings";
+import ManageBookings from "../pages/Dashboard/ManageBookings";
+import ErrorPage from "../error-page";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",

@@ -6,6 +6,9 @@ import Payment from "../../components/Payment/Payment";
 import "./home.css";
 import Testimonials from "../../components/Testimonials/Testimonial";
 import LeafMap from "../../components/Map/LeafMap";
+import ExclusiveDeals from "../../components/ExclusiveDeals/ExclusiveDeals";
+import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
+import LocalCuisineSection from "../../components/LocalCuisineSection/LocalCuisineSection";
 
 const Home = () => {
   return (
@@ -23,19 +26,21 @@ const Home = () => {
       <Categories />
       <Places />
       <h1 className="animated-text text-center text-3xl mt-20">
+        Exclusive Deals and Packages
+      </h1>
+      <h4 className="animated-text text-center text-lg">
+        Now you can Exclusive Deals and Packages with our services
+      </h4>
+      <ExclusiveDeals />
+      <LocalCuisineSection />
+      <h1 className="animated-text text-center text-3xl mt-20">
         Reviews from Customers
       </h1>
       <h4 className="animated-text text-center text-lg">
         We Believe In Quality trust our world wide services
       </h4>
       <Testimonials />
-      <h1 className="animated-text text-center text-3xl mt-20">
-        Payment Partner
-      </h1>
-      <h4 className="animated-text text-center text-lg">
-        Now you can Pay with our trusted world wide payment services
-      </h4>
-      <Payment />
+      <WhyChooseUs />
       <h1 className="animated-text text-center text-3xl mt-20">
         Use our world Map
       </h1>
@@ -43,6 +48,13 @@ const Home = () => {
         Find your best destination and enjoy your trip
       </h4>
       <LeafMap />
+      <h1 className="animated-text text-center text-3xl mt-20">
+        Payment Partner
+      </h1>
+      <h4 className="animated-text text-center text-lg">
+        Now you can Pay with our trusted world wide payment services
+      </h4>
+      <Payment />
     </>
   );
 };
