@@ -1,3 +1,9 @@
+[![CI](https://github.com/almahmudsarker/Through-Travels-Client/actions/workflows/ci.yml/badge.svg)](../../actions)
+**Quick Links:**  
+- 🚧 [Project Board](../../projects)  
+- 🗂 [Issues](../../issues) · 🎯 [Milestones](../../milestones)  
+- 📚 [Wiki](../../wiki) · 🤝 [Contributing](./CONTRIBUTING.md)
+
 # Through Travels - A Travel Website
 Welcome to Through Travels, an exciting travel website that allows users to explore and book their dream vacations. 
 This repository contains the codebase for the Through Travels React application, along with its backend built using Express and Node.js. 
